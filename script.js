@@ -18,7 +18,7 @@ main()
 async function loadApps(jsonData) {
     jsonData.apps.forEach(async (app) => {
         const htmlElement = document.getElementById(app.id);
-        const response = await fetchWithTimeout(jsonData.apihost + `/api/appstatus?url=${encodeURIComponent(app.url)}&response=${app.response}`, {
+        const response = await fetch(jsonData.apihost + `/api/appstatus?url=${encodeURIComponent(app.url)}&response=${app.response}`, {
             method: 'POST'
         });
         const { status } = await response.json();
@@ -34,19 +34,6 @@ async function loadApps(jsonData) {
         htmlElement.classList.add(status == "online" ? "text-success" : "text-danger");
     });
     return;
-}
-
-async function fetchWithTimeout(resource, options = {}) {
-    const { timeout = 20000 } = options;
-
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), timeout);
-    const response = await fetch(resource, {
-        ...options,
-        signal: controller.signal
-    });
-    clearTimeout(id);
-    return response;
 }
 
 function countdown(duration, refreshTimer) {
