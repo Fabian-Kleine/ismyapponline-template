@@ -22,6 +22,13 @@ async function loadApps(jsonData) {
             method: 'POST'
         });
         const { status } = await response.json();
+        if (typeof status == "object") {
+            htmlElement.innerText = status.status;
+            htmlElement.classList = "";
+            const colorClass = status.color == "green" ? "text-success" : status.color == "red" ? "text-danger" : "text-warning";
+            htmlElement.classList.add(colorClass);
+            return;
+        }
         htmlElement.innerText = status;
         htmlElement.classList = "";
         htmlElement.classList.add(status == "online" ? "text-success" : "text-danger");
