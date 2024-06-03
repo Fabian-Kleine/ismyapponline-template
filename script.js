@@ -23,7 +23,7 @@ async function loadApps(jsonData) {
         });
         const { status } = await response.json();
         if (typeof status == "object") {
-            htmlElement.innerText = status.status;
+            htmlElement.innerText = status.statusText;
             htmlElement.classList = "";
             const colorClass = status.color == "green" ? "text-success" : status.color == "red" ? "text-danger" : "text-warning";
             htmlElement.classList.add(colorClass);
