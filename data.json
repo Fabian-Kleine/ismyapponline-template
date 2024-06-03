@@ -1,0 +1,26 @@
+{
+    "apihost": "http://localhost:3000",
+    "apps": [
+        {
+            "id": "4b10868a-bc5c-4b66-8d49-52171fb44870",
+            "name": "App 1",
+            "url": "https://example.com",
+            "response": "nothing"
+        },
+        {
+            "id": "c3b2c46a-aeb8-463d-8a60-678d595ce771",
+            "name": "App 2",
+            "url": "https://app2.example.com",
+            "response": "500"
+        },
+        {
+            "id": "2b44e255-381f-45b0-a209-138756da6dda",
+            "name": "App 3",
+            "url": "https://app3.example.com",
+            "response": "both"
+        }
+    ],
+    "heading": "Company Name",
+    "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "refreshTimer": true
+}
