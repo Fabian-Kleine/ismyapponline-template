@@ -2,6 +2,20 @@ async function main() {
     try {
         setTimeStamp();
         let jsonData = {};
+        //reads the data from data.json
+        //you can also hard code this like this:
+        // const data = {
+        //     apihost: "host",
+        //     apps: [
+        //         {
+        //             id: "4b10868a-bc5c-4b66-8d49-52171fb44870",
+        //             url: "https://example.com",
+        //             response: "nothing"
+        //         },
+        //         //add more apps
+        //     ],
+        //     refreshTimer: true
+        // }
         await fetch('./data.json')
             .then((res) => res.json())
             .then((json) => jsonData = json);
@@ -15,6 +29,7 @@ async function main() {
 
 main()
 
+//fetches the status from the IsMyAppOnline API and applies it to an HTML element
 async function loadApps(jsonData) {
     jsonData.apps.forEach(async (app) => {
         const htmlElement = document.getElementById(app.id);
@@ -22,6 +37,8 @@ async function loadApps(jsonData) {
             method: 'POST'
         });
         const { status } = await response.json();
+
+        //when status is typeof object it contains a custom status which contains a color and a statusText
         if (typeof status == "object") {
             htmlElement.innerText = status.statusText;
             htmlElement.classList = "";
@@ -36,6 +53,8 @@ async function loadApps(jsonData) {
     return;
 }
 
+//the countdown reloads the page after 1 minute when refreshTimer is set to true in data.json
+//the countdown is placed inside and HTML element
 function countdown(duration, refreshTimer) {
     const timerElement = document.getElementById("timerDisplay");
     if (!refreshTimer) {
@@ -56,6 +75,8 @@ function countdown(duration, refreshTimer) {
     }, 1000)
 }
 
+
+//Gets the current time and date and places it in a HTML element
 function setTimeStamp() {
     const timeContainer = document.getElementById('time');
     const date = new Date(Date.now());
