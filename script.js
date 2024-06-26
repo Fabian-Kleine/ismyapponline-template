@@ -4,7 +4,7 @@ async function main() {
         let jsonData = {};
         //reads the data from data.json
         //you can also hard code this like this:
-        // const data = {
+        // const jsonData = {
         //     apihost: "host",
         //     apps: [
         //         {
