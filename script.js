@@ -1,3 +1,6 @@
+//find out more on how use script.js: https://ismyapponline.vercel.app/docs/api/scriptjs
+//find out more on how to write your custom script: https://ismyapponline.vercel.app/docs/api/custom-script
+
 async function main() {
     try {
         setTimeStamp();
@@ -39,6 +42,7 @@ async function loadApps(jsonData) {
         const { status } = await response.json();
 
         //when status is typeof object it contains a custom status which contains a color and a statusText
+        //more about the custom status: https://ismyapponline.vercel.app/docs/api/custom-status
         if (typeof status == "object") {
             htmlElement.innerText = status.statusText;
             htmlElement.classList = "";
