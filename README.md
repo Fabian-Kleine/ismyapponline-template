@@ -4,4 +4,6 @@ This template is an example on how to build a custom service status page using t
 
 ## Docs
 
-You can find out more in the [official docs](https://ismyapponline.vercel.app/docs/introduction).
+To find out more about the script open [script.js](/blob/main/script.js) and read the comments.
+
+To find out more visit the [official docs](https://ismyapponline.vercel.app/docs/introduction).
