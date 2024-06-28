@@ -8,7 +8,7 @@ async function main() {
         //reads the data from data.json
         //you can also hard code this like this:
         // const jsonData = {
-        //     apihost: "https://ismyapponline.vercel.app/",
+        //     apihost: "https://ismyapponline.vercel.app",
         //     apps: [
         //         {
         //             id: "4b10868a-bc5c-4b66-8d49-52171fb44870",
